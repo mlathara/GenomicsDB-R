@@ -36,7 +36,8 @@ AC_LANG(C++)
 AC_REQUIRE_CPP
 AC_PROG_CXX
 
-echo "GENOMCICSDB_HOME=${GENOMICSDB_HOME}"
+echo "GENOMICSDB_HOME=${GENOMICSDB_HOME}"
+echo "_DEF_MACRO=${_DEF_MACRO}"
 
 # Default values
 AC_SUBST([GENOMICSDB_INSTALL_PATH], ${GENOMICSDB_HOME})
@@ -64,7 +65,7 @@ AC_CHECK_FILES([${GENOMICSDB_INSTALL_PATH}/include/genomicsdb.h
                [AC_MSG_ERROR([GenomicsDB include files not found])])
 
 # Try compiling with GenomicsDB headers
-CPPFLAGS="${CPPFLAGS} ${CXX11STD} ${CXXFLAGS} -I${GENOMICSDB_INSTALL_PATH}/include"
+CPPFLAGS="${_DEF_MACRO} ${CPPFLAGS} ${CXX11STD} ${CXXFLAGS} -I${GENOMICSDB_INSTALL_PATH}/include"
 AC_TRY_COMPILE([#include <genomicsdb.h>],
                [],
                [],

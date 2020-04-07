@@ -2799,7 +2799,8 @@ ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ex
 ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
 
-echo "GENOMCICSDB_HOME=${GENOMICSDB_HOME}"
+echo "GENOMICSDB_HOME=${GENOMICSDB_HOME}"
+echo "_DEF_MACRO=${_DEF_MACRO}"
 
 # Default values
 GENOMICSDB_INSTALL_PATH=${GENOMICSDB_HOME}
@@ -2880,7 +2881,7 @@ fi
 
 
 # Try compiling with GenomicsDB headers
-CPPFLAGS="${CPPFLAGS} ${CXX11STD} ${CXXFLAGS} -I${GENOMICSDB_INSTALL_PATH}/include"
+CPPFLAGS="${_DEF_MACRO} ${CPPFLAGS} ${CXX11STD} ${CXXFLAGS} -I${GENOMICSDB_INSTALL_PATH}/include"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <genomicsdb.h>
